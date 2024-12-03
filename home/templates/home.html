@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>English to Sign Language Translation System</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      width: 100vw;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 600px;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    
+    .header .logo {
+      background-color: #ff6600;
+      color: white;
+      padding: 10px;
+      font-weight: bold;
+      border-radius: 50%;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+    
+    .header h1 {
+      font-size: 28px;
+      margin: 10px 0;
+    }
+    
+    .header h1 span {
+      color: #ff6600;
+    }
+    
+    .translator {
+      margin-top: 20px;
+    }
+    
+    .input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    
+    input {
+      width: 100%;
+      padding: 15px 50px 15px 15px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    
+    .clear-btn {
+      position: absolute;
+      right: 50px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: #888;
+      cursor: pointer;
+    }
+    
+    .mic-btn {
+      position: absolute;
+      right: 10px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .mic-icon {
+      background: url('mic-icon.png') no-repeat center;
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+    }
+    
+    .translate-btn {
+      margin-top: 20px;
+      padding: 12px 25px;
+      background-color: #ff6600;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 18px;
+      width: 100%;
+    }
+    
+    .translate-btn:hover {
+      background-color: #e65500;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">EST.</div>
+      <h1>English to Sign Language <span>Translation System</span></h1>
+    </div>
+    <div class="translator">
+      <div class="input-wrapper">
+        <input type="text" placeholder="Enter the text to translate..." id="inputText">
+        <button id="clearButton" class="clear-btn">&times;</button>
+        <button id="micButton" class="mic-btn">
+          <i style="font-size:24px" class="fa">&#xf130;</i>
+        </button>
+      </div>
+    </div>
+    <button class="translate-btn" id="translateButton">Translate</button>
+  </div>
+  <script>
+    // Clear button functionality
+document.getElementById('clearButton').addEventListener('click', () => {
+  document.getElementById('inputText').value = '';
+});
+
+// Translate button functionality
+document.getElementById('translateButton').addEventListener('click', () => {
+  const text = document.getElementById('inputText').value;
+  if (text.trim() === '') {
+    alert('Please enter text to translate.');
+  } else {
+    alert('Translation feature is under construction.');
+  }
+});
+
+// Mic button functionality (stubbed)
+document.getElementById('micButton').addEventListener('click', () => {
+  alert('Voice input is not implemented yet.');
+});
+
+  </script>
+</body>
+</html>

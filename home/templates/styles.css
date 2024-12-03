@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100vw;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .header .logo {
+    background-color: #ff6600;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 50%;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  
+  .header h1 {
+    font-size: 28px;
+    margin: 10px 0;
+  }
+  
+  .header h1 span {
+    color: #ff6600;
+  }
+  
+  .translator {
+    margin-top: 20px;
+  }
+  
+  .input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  input {
+    width: 100%;
+    padding: 15px 50px 15px 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .clear-btn {
+    position: absolute;
+    right: 50px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #888;
+    cursor: pointer;
+  }
+  
+  .mic-btn {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .mic-icon {
+    background: url('mic-icon.png') no-repeat center;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+  }
+  
+  .translate-btn {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    width: 100%;
+  }
+  
+  .translate-btn:hover {
+    background-color: #e65500;
+  }
+  
