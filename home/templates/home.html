@@ -11,145 +11,202 @@
       padding: 0;
       box-sizing: border-box;
     }
-    
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
       background-color: #f9f9f9;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
-      width: 100vw;
+      overflow: hidden;
+      text-align: center;
     }
-    
+
+    .top-left-logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: #ff8629;
+      color: white;
+      padding: 20px;
+      font-weight: bold;
+      font-size: 18px;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.3);
+    }
+
     .container {
       width: 100%;
       max-width: 600px;
-      padding: 20px;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      text-align: center;
+      padding: 40px;
     }
-    
-    .header .logo {
-      background-color: #ff6600;
-      color: white;
-      padding: 10px;
-      font-weight: bold;
-      border-radius: 50%;
-      display: inline-block;
-      margin-bottom: 10px;
+
+    h1 {
+      font-size: 32px;
+      margin: 15px 0;
     }
-    
-    .header h1 {
-      font-size: 28px;
-      margin: 10px 0;
+
+    h1 span {
+      color: #ff8629;
     }
-    
-    .header h1 span {
-      color: #ff6600;
-    }
-    
-    .translator {
-      margin-top: 20px;
-    }
-    
+
     .input-wrapper {
       position: relative;
       display: flex;
       align-items: center;
+      margin-bottom: 30px;
+      width: 100%;
     }
-    
+
     input {
       width: 100%;
-      padding: 15px 50px 15px 15px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
+      padding: 15px 60px 15px 20px;
+      font-size: 18px;
+      border: 2px solid #ccc;
+      border-radius: 30px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+      outline: none;
+      background-color: #E6E6E6;
     }
-    
-    .clear-btn {
+
+    input:focus {
+      border-color: #ff8629;
+      box-shadow: 0 4px 10px rgba(255, 134, 41, 0.3);
+    }
+
+    .clear-btn,
+    .mic-btn {
       position: absolute;
-      right: 50px;
+      top: 50%;
+      transform: translateY(-50%);
       background: none;
       border: none;
       font-size: 20px;
       color: #888;
       cursor: pointer;
+      transition: color 0.3s ease;
     }
-    
+
+    .clear-btn {
+      right: 70px;
+    }
+
     .mic-btn {
+      right: 18px;
+    }
+
+    .clear-btn:hover,
+    .mic-btn:hover {
+      color: #ff8629;
+    }
+
+    .bar {
       position: absolute;
-      right: 10px;
-      background: none;
-      border: none;
-      cursor: pointer;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 50px; /* Adjusted to sit between the buttons */
+      height: 25px; /* Height of the vertical bar */
+      width: 2px; /* Thickness of the vertical bar */
+      background-color: #858080; /* Color of the vertical bar */
     }
-    
-    .mic-icon {
-      background: url('mic-icon.png') no-repeat center;
-      width: 20px;
-      height: 20px;
-      display: inline-block;
-    }
-    
+
     .translate-btn {
-      margin-top: 20px;
-      padding: 12px 25px;
-      background-color: #ff6600;
+      padding: 15px 30px;
+      background-color: #ff8629;
       color: white;
       border: none;
-      border-radius: 4px;
+      border-radius: 10px;
       cursor: pointer;
-      font-size: 18px;
-      width: 100%;
+      font-size: 20px;
+      width: 33%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
-    
+
     .translate-btn:hover {
       background-color: #e65500;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     }
-    
+
+    /* Fullscreen Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        max-width: 90%;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      input {
+        padding: 12px 50px 12px 15px;
+        font-size: 16px;
+      }
+
+      .translate-btn {
+        font-size: 18px;
+        padding: 12px 20px;
+      }
+    }
+
+    @media (max-height: 500px) {
+      body {
+        align-items: flex-start;
+      }
+
+      .container {
+        margin-top: 20px;
+        max-height: 90%;
+        overflow-y: auto;
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- Top-left logo -->
+  <div class="top-left-logo">EST.</div>
+
   <div class="container">
-    <div class="header">
-      <div class="logo">EST.</div>
-      <h1>English to Sign Language <span>Translation System</span></h1>
-    </div>
-    <div class="translator">
-      <div class="input-wrapper">
-        <input type="text" placeholder="Enter the text to translate..." id="inputText">
-        <button id="clearButton" class="clear-btn">&times;</button>
-        <button id="micButton" class="mic-btn">
-          <i style="font-size:24px" class="fa">&#xf130;</i>
-        </button>
-      </div>
+    <h1>English to Sign Language <span>Translation</span> System</h1>
+    <div class="input-wrapper">
+      <input type="text" placeholder="Enter the text to translate..." id="inputText">
+      <button id="clearButton" class="clear-btn">&times;</button>
+      <div class="bar"></div> <!-- Vertical bar between the buttons -->
+      <button id="micButton" class="mic-btn">
+        <i class="fa fa-microphone"></i>
+      </button>
     </div>
     <button class="translate-btn" id="translateButton">Translate</button>
   </div>
+
   <script>
     // Clear button functionality
-document.getElementById('clearButton').addEventListener('click', () => {
-  document.getElementById('inputText').value = '';
-});
+    document.getElementById('clearButton').addEventListener('click', () => {
+      document.getElementById('inputText').value = '';
+    });
 
-// Translate button functionality
-document.getElementById('translateButton').addEventListener('click', () => {
-  const text = document.getElementById('inputText').value;
-  if (text.trim() === '') {
-    alert('Please enter text to translate.');
-  } else {
-    alert('Translation feature is under construction.');
-  }
-});
+    // Translate button functionality
+    document.getElementById('translateButton').addEventListener('click', () => {
+      const text = document.getElementById('inputText').value;
+      if (text.trim() === '') {
+        alert('Please enter text to translate.');
+      } else {
+        alert('Translation feature is under construction.');
+      }
+    });
 
-// Mic button functionality (stubbed)
-document.getElementById('micButton').addEventListener('click', () => {
-  alert('Voice input is not implemented yet.');
-});
-
+    // Mic button functionality (stubbed)
+    document.getElementById('micButton').addEventListener('click', () => {
+      alert('Voice input is not implemented yet.');
+    });
   </script>
 </body>
 </html>
