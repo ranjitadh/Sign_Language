@@ -150,12 +150,15 @@
 
     .modal-content {
       background: #fff;
-      margin: 15% auto;
-      padding: 20px;
-      border-radius: 10px;
-      width: 80%;
-      max-width: 400px;
+      margin: 10% auto;
+      padding: 30px;
+      border-radius: 15px;
+      width: 90%; /* Increased width */
+      max-width: 700px; /* Adjust as needed */
+      height: auto;
+      max-height: 90%; /* Prevent overflow */
       text-align: center;
+      overflow-y: auto; /* Add scrolling if content overflows */
     }
 
     .modal-header {
@@ -174,15 +177,16 @@
     }
 
     .modal-body img {
-      max-width: 100%;
-      height: auto;
-      border: 1px solid #ccc;
-      border-radius: 10px;
+      max-width: 300px; /* Increased maximum width */
+      max-height: 300px; /* Increased maximum height */
+      width: 100%; /* Ensure it scales with the modal size */
+      height: auto; /* Maintain aspect ratio */
+      margin-bottom: 20px;
     }
 
     .modal-body p {
-      font-size: 20px;
-      margin: 15px 0;
+      font-size: 24px; /* Larger text */
+      margin: 20px 0;
     }
 
     .modal-footer {
